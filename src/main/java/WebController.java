@@ -35,4 +35,19 @@ public class WebController {
         return "greeting";
     }
 
+    @GetMapping("/mainPage")  //наименование в url для вызова
+    public String mainЗ (){
+        return "main";
+    }
+
+    @GetMapping("/search")  //наименование в url для вызова
+    public String search (@RequestParam(name = "CityFrom") String cityFrom,   //принимает от сервера
+                          @RequestParam(name = "CityTo") String cityTo,
+                          @RequestParam(name = "DepDate") String depDate, Model model) {    ///ожидаемые параметры при запросе на search
+
+        model.addAttribute("c_from", cityFrom) ;
+        model.addAttribute("c_to", cityTo) ;
+        model.addAttribute("c_date", depDate) ;
+        return "result";
+    }
 }

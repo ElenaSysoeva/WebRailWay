@@ -10,7 +10,10 @@ public class PathConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("greeting");
-        registry.addViewController("/greeting").setViewName("greeting");
+      registry.addViewController("/").setViewName("main");
+      registry.addViewController("/main").setViewName("main");
+      registry.addViewController("/search").setViewName("search");
+
+        //registry.addViewController("/greeting").setViewName("greeting");
     }
 }
