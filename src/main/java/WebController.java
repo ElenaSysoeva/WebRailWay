@@ -5,9 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import railway.Controller;
+import railway.Ticket;
 
 import javax.naming.Name;
-
+import java.util.ArrayList;
+import java.util.HashSet;
+import railway.City;
 @org.springframework.stereotype.Controller
 @EnableAutoConfiguration
 
@@ -45,9 +49,23 @@ public class WebController {
                           @RequestParam(name = "CityTo") String cityTo,
                           @RequestParam(name = "DepDate") String depDate, Model model) {    ///ожидаемые параметры при запросе на search
 
+
+        Controller cont = new Controller();
+        City cityF = new City(cityFrom);
+        City cityT = new City(cityTo);
+
+        HashSet <Ticket>  ticketSet = cont.saleTickets(cityF,  cityT,  depDate);
+
+        model.addAttribute("c_from", cityFrom) ;
         model.addAttribute("c_from", cityFrom) ;
         model.addAttribute("c_to", cityTo) ;
         model.addAttribute("c_date", depDate) ;
+        model.addAttribute("ticketSet", ticketSet) ;
         return "result";
     }
+
+
+
+
+
 }

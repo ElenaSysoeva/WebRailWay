@@ -14,6 +14,24 @@
 
 
 </button>
+<div>
+    <Table>
+        <tr>
+            <th>Trip</th>
+            <th>Seat</th>
+            <th>Carriage</th>
+            <th>Carriage</th>
+            <th>Depart date</th>
+        <tr>
+        <tr th:each ="item: ${ticketSet}}">
+            <td>
+                <td th:utext="${item.Trip.number}">...</td>
+                 <td th:utext="${item.city1}">...</td>
 
+            </td>
+        </tr>
+
+    </Table>
+</div>
 </body>
 </html>

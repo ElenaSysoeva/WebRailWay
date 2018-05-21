@@ -153,6 +153,30 @@ public class Controller {
             }
 
         });
+        City city1 = new City("Москва");
+        City city2 = new City("Омск");
+        Trip trip1 = new Trip ("12", city1, city2 ,LocalDateTime.now());
+
+        Seat seat = new Seat();
+        seat.type= "dd1";
+        seat.number= 1;
+
+        ArrayList list = new ArrayList();
+        list.add("wqeqw");
+        list.add("rtryrt");
+        TypeCarriage typeCarr = new TypeCarriage("Купе",list );
+
+
+        Carriage carr = new Carriage(trip1, typeCarr, 3);
+        carr.number = 2;
+        carr.trip = trip1;
+
+
+
+
+        Ticket cityFrom1 = new Ticket(trip1, city1, city2, LocalDateTime.now(), seat, carr, "sdfdfgdfg");
+        Ticket cityFrom2 = new Ticket(trip1, city1, city2, LocalDateTime.now(), seat, carr, "tyryrtyututyu");
+
 
         return tickets;
 
