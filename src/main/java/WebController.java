@@ -57,10 +57,10 @@ public class WebController {
         HashSet <Ticket>  ticketSet = cont.saleTickets(cityF,  cityT,  depDate);
 
         model.addAttribute("c_from", cityFrom) ;
-        model.addAttribute("c_from", cityFrom) ;
         model.addAttribute("c_to", cityTo) ;
         model.addAttribute("c_date", depDate) ;
         model.addAttribute("ticketSet", ticketSet) ;
+
         return "result";
     }
 
