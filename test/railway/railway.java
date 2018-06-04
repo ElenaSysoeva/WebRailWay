@@ -1,14 +1,14 @@
-//package railway;
-//
-//import org.junit.Assert;
-//import org.junit.Test;
-//
-//import java.util.HashSet;
-//
-///**
-// * Created by pro-27 on 26.02.2018.
-// */
-//public class railway {
+package railway;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.HashSet;
+
+/**
+ * Created by pro-27 on 26.02.2018.
+ */
+public class railway {
 //
 //    @Test
 //    public void test() {
@@ -121,18 +121,25 @@
 //
 //    }
 //
-//    @Test
-//    public  void  testConnection() throws ClassNotFoundException {
-//
-//        DataMapper onesMapper = new DataMapper();
-//
-//       HashSet s=onesMapper.loadCities();
-//
-//       HashSet<Trip> t = onesMapper.loadTrip();
-//
-//       Assert.assertNotEquals(0,s.size());
-//
-//
-//    }
-//
-//}
+    @Test
+    public  void  testConnection() throws ClassNotFoundException {
+        String address = "jdbc:postgresql://localhost:5432/RealWay";
+        String user = "postgres";
+        String password = "123";
+
+DataMapper onesMapper = new DataMapper();
+onesMapper.connectSQL(address,user,password);
+
+       // DataMapper onesMapper = new DataMapper();
+
+       HashSet s=onesMapper.loadCities();
+
+       HashSet<Trip> t = onesMapper.loadTrip();
+
+
+       Assert.assertNotEquals(0,s.size());
+
+
+    }
+
+}
