@@ -107,9 +107,9 @@ public class Controller {
     }
 
     public HashSet<Ticket> saleTickets(City from, City to, String date) {
-        String pattern = "HH:mm:ss dd.MM.yyyy";
+        String pattern = "yyyy-MM-dd HH:mm:ss";
         DateTimeFormatter f = DateTimeFormatter.ofPattern(pattern);
-        LocalDateTime requiredDate = LocalDateTime.parse(date, f);
+        LocalDateTime requiredDate = LocalDateTime.parse(date + " 00:00:00", f);
         ComparatorStops OrderStopsByDate = new ComparatorStops();
         HashSet<Ticket> tickets = new HashSet();
 
